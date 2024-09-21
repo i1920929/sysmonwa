@@ -1,0 +1,335 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+.container1 {
+    display: flex;
+
+  }
+  
+  .contentgeneral1 {
+    width: 256px; /* O el ancho deseado */
+    height: 120vh;
+  }
+  
+  .content1 {
+    flex: 1;
+    margin-left: 10px;
+    border: 2px solid #419BEF;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+body{
+    background-color: #fff;
+}
+
+
+.container{
+    width: 256px;
+    min-height: 100vh;
+    height: 100%;
+
+}
+.sidebar{
+    width: 256px;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #53A4F0;
+    padding: 24px;
+    margin-left: -15px;
+}
+.sidebaruno{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sidebaruno a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 50px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    background-color: #71BFF0;
+    object-fit: cover;
+}
+
+.sidebar .head{
+    display: flex;
+}
+
+.sidebar .logo{
+    display: flex;
+    overflow: hidden; 
+}
+
+.user-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.user-img img {
+    width: 100%;
+    object-fit: cover;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+.logo-img{
+    width: 230px;
+    height: 90.81px;
+}
+.logo-img img {
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: cover;
+
+}
+.user-details {
+    padding: 10px;
+}
+.user-details .title{
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+}
+.user-details .name{
+    font-size: 16px;
+    font-weight: 720;
+    color: #fff;
+}
+
+.menu .title{
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+
+}
+.menu ul li{
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.menu ul li a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 8px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+.menu ul li a img{
+    width: 30px;
+    height: 32px;
+}
+.menu ul li > a:hover,
+.menu ul li.active > a{
+    color: #000;
+    background-color: #ffff;
+}
+.menu ul li .arrow{
+    font-size: 14px;
+    color: #000;
+}
+
+.menu .sub-menu{
+    display: none;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: 1px solid #fff;
+}
+.menu .sub-menu li a{
+    padding: 10px 8px;
+    font-size: 12px;
+}
+
+
+.table-header {
+    background-color: #C4C4C4;
+}
+.container-header{
+    background-color: #419BEF;
+    color: #fff!important;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 50px;
+}
+input {
+    border: 2px solid #419BEF !important; /* Borde de color personalizado */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 8px 16px; /* Espaciado interno */
+    transition: border-color 0.3s; /* Transición suave al cambiar el borde */
+}
+
+/* Estilo al enfocar los inputs */
+input:focus {
+    border-color: #2B5BBF !important; /* Color del borde al enfocar */
+    outline: none; /* Eliminar el contorno por defecto */
+}
+
+
+.containercreate {
+    background-color: white;
+    padding: 50px;
+    border-radius: 8px;
+    border: 2px solid #419BEF; /* Borde del formulario */
+    width: 90%;
+    margin-left: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+label {
+    flex-basis: 40%; /* Controla el ancho de los labels */
+    text-align: left;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    flex-basis: 55%; /* Controla el ancho de los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="number"] {
+    flex-basis: 55%; /* Controla el ancho de los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="textarea"] {
+    flex-basis: 55%; /* Controla el ancho de los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="email"] {
+    flex-basis: 55%; /* Controla el ancho de los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #3E7FF5; /* Color de fondo de los botones */
+    flex: 1;
+    margin: 0 5px; /* Espacio entre los botones */
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#deleteModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+
+}
+
+.modal-content {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    border: 2px solid #419BEF;
+}
+.modal-content h2{
+    color:#fff;
+    font-size: 15px;
+    
+}
+.modal-content p{
+  padding: 25px;
+    
+}
+.modal-content .container-header{
+    padding: 5px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+.btn-secondary {
+    background-color: #3E7FF5;
+    color: white;
+}
+
+.btn-danger {
+    background-color: red;
+    color: white;
+}
+
+select#client_id {
+    border: 2px solid #419BEF !important;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: border-color 0.3s;
+    width: 55%;
+}
+
+select#client_id:focus {
+    border-color: #2B5BBF !important; /* Color del borde al enfocar */
+    outline: none; /* Eliminar el contorno por defecto */
+}
