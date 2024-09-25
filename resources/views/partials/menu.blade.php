@@ -48,7 +48,7 @@
                                     <a href="{{ route('tanques.index') }}">
                                         <span class="text">Tanques</span>
                                     </a>
-                                    <a href="#">
+                                    <a href="{{ route('sensors.index') }}">
                                         <span class="text">Sensores</span>
                                     </a>
                                 </li>

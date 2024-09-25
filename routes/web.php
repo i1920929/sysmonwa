@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TanqueController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SensorController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +23,4 @@ Route::get('/', function () {
 
 Route::resource('tanques', TanqueController::class);
 Route::resource('clients', ClientController::class);
+Route::resource('sensors', SensorController::class);

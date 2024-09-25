@@ -321,7 +321,7 @@ button:hover {
     color: white;
 }
 
-select#client_id {
+select {
     border: 2px solid #419BEF !important;
     border-radius: 8px;
     padding: 8px 16px;
@@ -329,7 +329,7 @@ select#client_id {
     width: 55%;
 }
 
-select#client_id:focus {
+select:focus {
     border-color: #2B5BBF !important; /* Color del borde al enfocar */
     outline: none; /* Eliminar el contorno por defecto */
 }
