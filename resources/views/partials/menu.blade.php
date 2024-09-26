@@ -1,6 +1,6 @@
 <!-- resources/views/partials/menu.blade.php -->
 
-    <div class="container">
+    <div class="containers">
         <div class="sidebar">
             <div class="sidebaruno">
                 <div class="logo">
@@ -11,17 +11,21 @@
 
                 <div class="logo">
                     <div class="user-img">
-                        <img src="../../img/user.jpg" alt="">
+                    @if(Auth::check() && Auth::user()->profile_image)
+                        <img src="{{ asset('images/' . Auth::user()->profile_image) }}" alt="Imagen de perfil">
+                    @else
+                        <img src="../../img/user.png" alt="Imagen de perfil por defecto">
+                    @endif
                     </div>
                 </div>
 
                 <div class="head">
                     <div class="user-details">
-                        <p class="name">Yerald Sinche</p>
-                        <p class="title">Adminstrador</p>
+                        <p class="name">{{ Auth::user()->username }}</p>
+                        <p class="role">{{ Auth::user()->role }}</p>
                     </div>
                 </div>
-                <a href="#">
+                <a href="{{ route('users.edit', Auth::id()) }}">
                     <i class="icon"></i>
                     <span class="text">Editar Perfil</span>
                 </a>
@@ -31,29 +35,33 @@
                 <div class="menu">
                     <p class="title">Menú</p>
                     <ul>
-                        <li class="active">
-                            <a href="#">
-                                <img src="../../img/icon-admin.png" alt="">
-                                <span class="text">Administración</span>
-                                <i class="arrow ph-bold ph-caret-down"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
+                    @auth
+                            @if(Auth::user()->role !== 'Usuario')
+                                <li class="active">
                                     <a href="#">
-                                        <span class="text">Usuarios</span>
+                                        <img src="../../img/icon-admin.png" alt="">
+                                        <span class="text">Administración</span>
+                                        <i class="arrow ph-bold ph-caret-down"></i>
                                     </a>
-                                    <a href="{{ route('clients.index') }}">
-                                        <span class="text">Clientes</span>
-                                    </a>
-                                    <a href="{{ route('tanques.index') }}">
-                                        <span class="text">Tanques</span>
-                                    </a>
-                                    <a href="{{ route('sensors.index') }}">
-                                        <span class="text">Sensores</span>
-                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('users.index') }}">
+                                                <span class="text">Usuarios</span>
+                                            </a>
+                                            <a href="{{ route('clients.index') }}">
+                                                <span class="text">Clientes</span>
+                                            </a>
+                                            <a href="{{ route('tanques.index') }}">
+                                                <span class="text">Tanques</span>
+                                            </a>
+                                            <a href="{{ route('sensors.index') }}">
+                                                <span class="text">Sensores</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                            </ul>
-                        </li>
+                            @endif
+                        @endauth
                         <li>
                             <a href="#">
                                 <img src="../../img/icon-consumo.png" alt="">
@@ -121,10 +129,18 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="../../img/icon-salir.png" alt="">
-                                <span class="text">Cerrar sesión</span>
-                            </a>
+
+                            <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                      <img src="../../img/icon-salir.png" alt="">
+                                        {{ __('Cerrar sesión') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
                         </li>
                     </ul>
 

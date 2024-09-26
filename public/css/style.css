@@ -26,10 +26,11 @@
 
 body{
     background-color: #fff;
+    zoom: 95%;
 }
 
 
-.container{
+.containers{
     width: 256px;
     min-height: 100vh;
     height: 100%;
@@ -247,6 +248,12 @@ input[type="email"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+input[type="password"] {
+    flex-basis: 55%; /* Controla el ancho de los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 .buttons {
     display: flex;
     justify-content: space-between;
@@ -332,4 +339,130 @@ select {
 select:focus {
     border-color: #2B5BBF !important; /* Color del borde al enfocar */
     outline: none; /* Eliminar el contorno por defecto */
+}
+
+/* CSS Login */
+
+/* Encabezado con el logo */
+header {
+    background-color: #3C76E3;
+    padding: 10px 20px;
+}
+
+header .logo img {
+    width: 230px;
+    height: 80px;
+}
+
+/* Contenedor del formulario de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(1, 1, 1, 0.25);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    height: 110%;
+    margin-top: 50px;
+}
+
+/* Título del formulario */
+.login-form h2 {
+    margin-bottom: 0px;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #333;
+    padding-bottom: 5px;
+}
+
+/* Inputs de usuario y contraseña */
+.login-form label {
+    display: block;
+    text-align: left;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Estilo del enlace para recuperar contraseña */
+.forgot-password {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: #888;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Botón de inicio de sesión */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3C76E3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-btn:hover {
+    background-color: #365fc1;
+}
+
+
+/* Pie de página */
+footer {
+    background-color: #3C76E3;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+svg.lock-icon {
+    width: 35px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px; /* Espacio entre el checkbox y el texto */
+}
+
+span.invalid-feedback {
+    color: red;
+    font-weight: 100;
+    padding: 2px;
 }
