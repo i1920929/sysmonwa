@@ -8,25 +8,42 @@
 
 .container1 {
     display: flex;
-
+    height: 100vh;
   }
   
   .contentgeneral1 {
-    width: 256px; /* O el ancho deseado */
-    height: 120vh;
+    width: 230px; /* O el ancho deseado */
+    height: 100vh; 
+    position: sticky; /* Permite que el menú se quede fijo */
+    top: 0; /* Mantiene el menú en la parte superior */
+    height: 100vh; /* Asegura que el menú ocupe toda la altura */
+    overflow-y: auto;
   }
-  
+  .contentgeneral1::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.contentgeneral1::-webkit-scrollbar-thumb {
+    background-color: #419BEF; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.contentgeneral1::-webkit-scrollbar-thumb:hover {
+    background-color: #419BEF; /* Color del pulgar al pasar el mouse */
+}
+
   .content1 {
     flex: 1;
     margin-left: 10px;
     border: 2px solid #419BEF;
     padding: 20px;
     border-radius: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
 body{
     background-color: #fff;
-    zoom: 95%;
 }
 
 
@@ -173,8 +190,38 @@ body{
     padding: 30px;
     border-radius: 10px;
     width: 100%;
-    height: 100px;
+    height: 80px;
     margin-bottom: 50px;
+}
+.container-subheader{
+    background-color: #419BEF;
+    color: #fff!important;
+    padding: 20px;
+    margin-top: -40px;
+    border-radius: 10px;
+    width: 95%;
+    height: 70px;
+    margin-left: 50px;
+}
+.container-subheader h2{
+    font-size: 20px;
+    color: #fff;
+    text-align: left;
+}
+.container-subheader2{
+    background-color: #419BEF;
+    color: #fff!important;
+    padding: 20px;
+    border-radius: 10px;
+    width: 95%;
+    height: 70px;
+    margin-left: 50px;
+    margin: 30px;
+}
+.container-subheader2 h2{
+    font-size: 20px;
+    color: #fff;
+    text-align: left;
 }
 input {
     border: 2px solid #419BEF !important; /* Borde de color personalizado */
@@ -360,6 +407,8 @@ header .logo img {
     justify-content: center;
     align-items: center;
     height: 70vh;
+    zoom: 90%;
+
 }
 
 .login-form {
@@ -465,4 +514,114 @@ span.invalid-feedback {
     color: red;
     font-weight: 100;
     padding: 2px;
+}
+
+/* Estilo general del tooltip */
+.tooltip {
+    position: relative;
+}
+
+/* Estilo del texto del tooltip */
+.tooltip .tooltip-text {
+    visibility: hidden; /* Oculto por defecto */
+    width: auto; /* Ajustar automáticamente al contenido */
+    min-width: 80px; /* Ancho mínimo del tooltip */
+    background-color: #555; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno */
+    position: absolute; /* Posicionamiento absoluto */
+    z-index: 10; /* Asegúrate de que esté en la parte superior */
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.3s; /* Transición suave */
+}
+
+/* Mostrar el tooltip al hacer hover */
+.tooltip:hover .tooltip-text {
+    visibility: visible; /* Muestra el tooltip */
+    opacity: 1; /* Cambia la opacidad a 1 */
+}
+
+/* Flecha del tooltip */
+.tooltip .tooltip-text::after {
+    content: ""; /* Pseudoelemento vacío */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 100%; /* Posición debajo del tooltip */
+    left: 50%; /* Centra la flecha */
+    margin-left: -5px; /* Ajusta la posición para centrarla */
+    border-width: 5px; /* Tamaño de la flecha */
+    border-style: solid; /* Estilo sólido */
+    border-color: #555 transparent transparent transparent; /* Color de la flecha */
+}
+.chart-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    width: 95%;
+    height: 650px;
+}
+
+.labels {
+    display: flex;
+    margin-bottom: 10px; /* Espacio entre las etiquetas y el gráfico */
+    margin-left: 40%;
+}
+
+.label {
+    background-color: #f0f8ff; /* Color de fondo */
+    border: 1px solid #0066cc; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    color: #0066cc; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+span#todayTotal {
+    margin-left: 30px;
+}
+#historicalDataForm .flex-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: 30%;
+    padding: 15px;
+}
+
+#historicalDataForm .form-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#historicalDataForm label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+#historicalDataForm .input-date {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #a2caf8;
+    width: 180px;
+    box-shadow: none;
+    text-align: center;
+}
+
+#historicalDataForm .filter-button {
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #3686f7;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    color: white;
+}
+
+#historicalDataForm .filter-button:hover {
+    background-color: #1c65d0;
 }

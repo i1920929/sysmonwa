@@ -1,37 +1,48 @@
 @extends('layouts.layout')
-@section('title', 'Ver Sensor')
+@section('title', 'Ver Tanque')
 
 @section('content')
 
 <div class="container-header">
-    <h1 class="text-2xl font-bold mb-4">Gestión de Sensores / Detalles </h1>
+    <h1 class="text-2xl font-bold mb-4">Gestión de Tanques / Detalles</h1>
 </div>
 
 <div class="containercreate">
     <form>
-        <!-- Nombre del sensor -->
+        <!-- Nombre del tanque -->
         <div class="form-group">
-            <label for="name">Nombre del sensor:</label>
-            <input type="text" id="name" name="name" class="form-control" value="{{ $sensor->name }}" disabled>
+            <label for="name">Nombre del tanque:</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ $tanque->name }}" disabled>
         </div>
 
-        <!-- Tipo de sensor -->
+        <!-- Ubicación -->
         <div class="form-group">
-            <label for="type">Tipo de sensor:</label>
-            <input type="text" id="type" name="type" class="form-control" value="{{ ucfirst($sensor->type) }}" disabled>
+            <label for="location">Ubicación:</label>
+            <input type="text" id="location" name="location" class="form-control" value="{{ $tanque->location }}" disabled>
         </div>
 
-        <!-- Tanque asociado -->
+        <!-- Capacidad -->
         <div class="form-group">
-            <label for="tank_id">Tanque asociado:</label>
-            <input type="text" id="tank_id" name="tank_id" class="form-control" value="{{ $sensor->tank->name ?? 'Ninguno' }}" disabled>
+            <label for="capacity">Capacidad:</label>
+            <input type="number" id="capacity" name="capacity" class="form-control" value="{{ $tanque->capacity }}" disabled>
         </div>
 
+        <!-- Unidad -->
+        <div class="form-group">
+            <label for="unit">Unidad:</label>
+            <input type="text" id="unit" name="unit" class="form-control" value="{{ $tanque->unit }}" disabled>
+        </div>
+
+        <!-- Cliente asociado -->
+        <div class="form-group">
+            <label for="client_id">Cliente:</label>
+            <input type="text" id="client_id" name="client_id" class="form-control" value="{{ $tanque->client->name ?? 'Ninguno' }}" disabled>
+        </div>
 
         <!-- Botón Volver -->
         <div class="buttons">
             <button type="button" class="volver">
-                <a href="{{ route('sensors.index') }}">
+                <a href="{{ route('tanques.index') }}" class="text-white">
                     <i class="fas fa-arrow-left mr-1"></i> Volver
                 </a>
             </button>

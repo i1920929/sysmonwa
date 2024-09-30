@@ -6,6 +6,9 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Api\WaterConsumptionController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +32,20 @@ Auth::routes();
 Route::resource('users', UserController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::get('/consumption/realtime', function () {
+    return view('consumption.realtime');
+});
+// Route::get('/consumption/historical', function () {
+//     return view('consumption.historical');
+// });
+
+
+Route::get('/api/water-consumption', [WaterConsumptionController::class, 'index']);
+Route::get('/api/daily-consumption', [WaterConsumptionController::class, 'getDailyConsumption']);
+
+Route::get('/consumption/historical', [WaterConsumptionController::class, 'historicalData'])->name('historical.data');
+
+Route::get('/export-water-consumption', [WaterConsumptionController::class, 'exportCSV'])->name('export.water.consumption');
+Route::get('/export-water-consumption-xls', [WaterConsumptionController::class, 'exportXLS'])->name('export.water.consumption.xls');
+
+Route::get('/enviar-alerta', [WaterConsumptionController::class, 'enviarAlertaConsumo']);

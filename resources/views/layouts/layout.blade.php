@@ -37,9 +37,6 @@
       integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
       crossorigin="anonymous"
     ></script>
-
-    <!-- Enlace a jQuery, Popper.js y Bootstrap JS desde el CDN -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Puedes añadir más scripts aquí -->
     <script src="../../js/script.js"></script>
 </body>

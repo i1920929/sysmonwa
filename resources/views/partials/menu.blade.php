@@ -70,10 +70,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="/consumption/realtime">
                                         <span class="text">En tiempo real</span>
                                     </a>
-                                    <a href="#">
+                                    <a href="/consumption/historical">
                                         <span class="text">Histórico</span>
                                     </a>
                                     <a href="#">

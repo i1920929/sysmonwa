@@ -88,10 +88,22 @@
         @endif
 
         <!-- Botones para Guardar y Volver -->
+
+        @if(Auth::user()->role === 'Administrador')
+
+
         <div class="buttons">
             <button type="button" class="volver"><a href="{{ route('users.index') }}">< Volver</a></button>
             <button type="submit" class="editar"> <i class="fas fa-edit mr-1"></i> Actualizar</button>
         </div>
+
+        
+        @else
+            <div class="buttons">
+            <button type="button" class="volver"><a href="/home">< Volver</a></button>
+            <button type="submit" class="editar"> <i class="fas fa-edit mr-1"></i> Actualizar</button>
+        </div>
+        @endif
     </form>
 </div>
 @endsection

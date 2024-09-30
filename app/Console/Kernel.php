@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+use Illuminate\Support\Facades\Log;
 class Kernel extends ConsoleKernel
 {
     /**
@@ -15,7 +15,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Esta tarea se ejecuta cada lunes a las 9:00 AM
+        $schedule->call(function () {
+            // Aquí llamas al método de tu controlador
+            app(\App\Http\Controllers\Api\WaterConsumptionController::class)->enviarAlertaConsumo();
+        })->weeklyOn(1, '9:00'); // 1 es para lunes, 9:00 AM
     }
 
     /**
