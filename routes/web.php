@@ -35,6 +35,10 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::get('/consumption/realtime', function () {
     return view('consumption.realtime');
 });
+Route::get('/level/realtime', function () {
+    return view('level.realtime');
+});
+
 // Route::get('/consumption/historical', function () {
 //     return view('consumption.historical');
 // });
