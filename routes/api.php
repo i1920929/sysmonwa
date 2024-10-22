@@ -24,4 +24,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/water-consumption', [WaterConsumptionController::class, 'index']);
 
 Route::get('/water-level', [WaterLevelController::class, 'index']);
-Route::get('/daily-level', [WaterLevelController::class, 'getDailyLevel']);
