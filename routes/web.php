@@ -49,3 +49,10 @@ Route::get('/export-water-consumption', [WaterConsumptionController::class, 'exp
 Route::get('/export-water-consumption-xls', [WaterConsumptionController::class, 'exportXLS'])->name('export.water.consumption.xls');
 
 Route::get('/enviar-alerta', [WaterConsumptionController::class, 'enviarAlertaConsumo']);
+
+Route::get('/water-level/historical', [WaterLevelController::class, 'historicalData'])->name('historical.level.data');
+
+Route::get('/export-water-level', [WaterLevelController::class, 'exportCSV'])->name('export.water.level');
+Route::get('/export-water-level-xls', [WaterLevelController::class, 'exportXLS'])->name('export.water.level.xls');
+
+
