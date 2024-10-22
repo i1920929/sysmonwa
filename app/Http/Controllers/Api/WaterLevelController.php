@@ -62,4 +62,47 @@ class WaterLevelController extends Controller
         fclose($handle);
         exit();
     }
+
+     public function exportXLS()
+    {
+        // Obtener todos los registros de nivel de agua
+        $waterLevels = WaterLevel::all();
+
+        // Crear una nueva hoja de cálculo
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Configurar encabezados
+        $sheet->setCellValue('A1', 'ID');
+        $sheet->setCellValue('B1', 'Timestamp');
+        $sheet->setCellValue('C1', 'Nivel (cm)');
+        $sheet->setCellValue('D1', 'Unidad');
+        $sheet->setCellValue('E1', 'ID Sensor');
+        $sheet->setCellValue('F1', 'ID Tanque');
+
+        // Agregar los datos
+        $row = 2; // Comenzar en la segunda fila
+        foreach ($waterLevels as $level) {
+            $sheet->setCellValue('A' . $row, $level->id);
+            $sheet->setCellValue('B' . $row, $level->timestamp);
+            $sheet->setCellValue('C' . $row, $level->level);
+            $sheet->setCellValue('D' . $row, $level->unit);
+            $sheet->setCellValue('E' . $row, $level->sensor_id);
+            $sheet->setCellValue('F' . $row, $level->tank_id);
+            $row++;
+        }
+
+        // Configurar el escritor de XLSX
+        $writer = new Xlsx($spreadsheet);
+        
+        // Enviar el archivo al navegador
+        $filename = 'nivel_agua_' . date('Y_m_d_H_i_s') . '.xlsx';
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+        
+        // Guardar el archivo en la salida
+        $writer->save('php://output');
+        exit;
+    }
 }
