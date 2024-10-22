@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\WaterConsumptionController;
+use App\Http\Controllers\Api\WaterLevelController;
 
 
 /*
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/water-consumption', [WaterConsumptionController::class, 'index']);
 
+Route::get('/water-level', [WaterLevelController::class, 'index']);
+Route::get('/daily-level', [WaterLevelController::class, 'getDailyLevel']);
