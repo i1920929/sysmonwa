@@ -90,10 +90,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="/level/realtime">
                                         <span class="text">En tiempo real</span>
                                     </a>
-                                    <a href="#">
+                                    <a href="/level/historical">
                                         <span class="text">Histórico</span>
                                     </a>
                                     <a href="#">

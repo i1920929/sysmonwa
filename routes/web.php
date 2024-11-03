@@ -7,6 +7,7 @@ use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Api\WaterConsumptionController;
+use App\Http\Controllers\Api\WaterLevelController;
 
 
 /*
@@ -21,9 +22,14 @@ use App\Http\Controllers\Api\WaterConsumptionController;
 */
 
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+// Route::get('/', function () {
+//     return view('auth/login');
+// });
+
+ Route::get('/', function () {
+     return view('index');
+ });
+
 
 Route::resource('tanques', TanqueController::class);
 Route::resource('clients', ClientController::class);
@@ -54,12 +60,17 @@ Route::get('/export-water-consumption-xls', [WaterConsumptionController::class, 
 
 Route::get('/enviar-alerta', [WaterConsumptionController::class, 'enviarAlertaConsumo']);
 
+
+// Rutas Nivel de agua
+
+Route::get('/level/realtime', function () {
+    return view('level.realtime');
+});
+
 Route::get('/water-level', [WaterLevelController::class, 'index']);
 Route::get('/daily-level', [WaterLevelController::class, 'getDailyLevel']);
-
-Route::get('/water-level/historical', [WaterLevelController::class, 'historicalData'])->name('historical.level.data');
-
+Route::get('/api/water-level/latest', [WaterLevelController::class, 'getLatestLevel']);
+Route::get('/level/historical', [WaterLevelController::class, 'historicalData'])->name('historical.data');
 Route::get('/export-water-level', [WaterLevelController::class, 'exportCSV'])->name('export.water.level');
 Route::get('/export-water-level-xls', [WaterLevelController::class, 'exportXLS'])->name('export.water.level.xls');
-
-
+Route::get('/send-test-water-alert', [WaterLevelController::class, 'enviarAlertaNivel']);
